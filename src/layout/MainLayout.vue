@@ -1,9 +1,17 @@
 <template>
-  <main class="w-2/3 flex flex-col gap-2 p-4">
-    <slot />
+  <main class="flex gap-2 p-4">
+    <NavBar />
+    <div class="w-[100%] p-8">
+      <slot />
+    </div>
+    <aside class="w-[25%] p-5 hidden sm:block">
+      <slot name="side" />
+    </aside>
   </main>
 </template>
-
+<script setup>
+import NavBar from '@/components/NavBar.vue'
+</script>
 <style scoped>
 main {
   background: rgb(26, 28, 32);

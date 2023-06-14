@@ -1,15 +1,15 @@
 <template>
   <MainLayout>
-      <MainPoster title="Asghar" subtitle="naive girl in Paris" :src="amelie" />
-      <SidebarMovieCard
+    <MainPoster title="Asghar" subtitle="naive girl in Paris" :src="amelie" />
+    <SidebarMovieCard
       title="BlackList"
       :score="8.3"
       :genre="['action', 'horror']"
       :src="blacklist"
-      />
-      <NavLink text="Home" :icon="home" :active-icon="homeActive" active />
-      <MovieTrailer title="Outlander" :src="outlander" />
-      <WatchMovieCard title="The blade runner" :year="2021" :score="8.3" :src="bladeRunner" />
+    />
+    <NavLink text="Home" :icon="home" :active-icon="homeActive" active />
+    <MovieTrailer title="Outlander" :src="outlander" />
+    <WatchMovieCard title="The blade runner" :year="2021" :score="8.3" :src="bladeRunner" />
   </MainLayout>
 </template>
 
