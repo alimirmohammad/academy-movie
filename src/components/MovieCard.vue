@@ -1,7 +1,7 @@
 <template>
-  <div @mouseenter="toggleOverlay" @mouseleave="toggleOverlay">
+  <div @mouseenter="toggleOverlay" @mouseleave="toggleOverlay" class="overflow-hidden">
     <a class="thumbnail-image relative">
-      <img :src="amelie" alt="movie poster" class="movie-poster" />
+      <img :src="src" alt="movie poster" class="movie-poster" />
       <div
         v-if="showOverlay"
         class="overlay-desc absolute top-0 left-0 rounded-2xl w-full h-full p-3 flex justify-end flex-col gap-1 transition-all opacity-0"
@@ -12,22 +12,23 @@
             <span>{{ rating }}</span>
           </div>
         </div>
-        <div class="genre">{{ categories }}</div>
-        <div class="more-infos">{{ movieFooter }}</div>
+        <!-- <div class="genre">{{ categories }}</div> -->
+        <div class="more-infos">{{ year }}</div>
       </div>
     </a>
-    <h3 class="text-white ml-1">{{ props.title }}</h3>
+    <h3 class="text-white ml-1 w-full whitespace-break-spaces truncate">{{ title }}</h3>
   </div>
 </template>
 <script setup>
 import { computed, ref } from 'vue'
 import imdb from '@/assets/imdb.png'
-import amelie from '@/assets/amelie.jpg'
-const props = defineProps('item', 'loading')
-const rating = computed(() => props.review / 10)
-const year = computed(() => new Date(props.date).getFullYear())
-const categories = computed(() => (props.categories || []).map(({ title }) => title).join(','))
-const movieFooter = computed(() => `${props.counrty} - ${year.value}`)
+const props = defineProps({
+  src: String,
+  rating: Number,
+  releaseDate: String,
+  title: String
+})
+const year = computed(() => new Date(props.releaseDate).getFullYear())
 const showOverlay = ref(false)
 function toggleOverlay() {
   showOverlay.value = !showOverlay.value
@@ -43,5 +44,8 @@ function toggleOverlay() {
 }
 .thumbnail-image:hover .overlay-desc {
   opacity: 1;
+}
+.movie-poster {
+  @apply bg-slate-50  w-[150px] h-[220px]  rounded-2xl border-transparent transition-all mb-2;
 }
 </style>

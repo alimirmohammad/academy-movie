@@ -1,7 +1,7 @@
 <template>
-  <LoginPage />
+  <MoviesPage />
 </template>
 
 <script setup>
-import LoginPage from '@/pages/LoginPage.vue'
+import MoviesPage from './pages/MoviesPage.vue'
 </script>

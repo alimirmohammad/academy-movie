@@ -16,33 +16,46 @@
       </div>
 
       <form
-        action="#"
+        @submit.prevent="login"
         class="flex flex-col items-center gap-2 justify-center content-center text-secondary w-full"
       >
         <label for="username" class="hidden"></label>
         <input
           type="text"
           name="username"
+          v-model="username"
           placeholder="Username"
-          class="border-[3px] border-primary rounded-3xl block bg-transparent p-3 outline-none w-full"
+          class="text-white border-[3px] border-primary rounded-3xl block bg-transparent p-3 outline-none w-full"
         />
         <p class="error" id="username"></p>
         <label for="password" class="hidden"></label>
         <input
-          type="text"
+          type="password"
           name="password"
+          v-model="password"
           placeholder="Password"
-          class="border-[3px] border-primary rounded-3xl block bg-transparent p-3 outline-none w-full"
+          class="text-white border-[3px] border-primary rounded-3xl block bg-transparent p-3 outline-none w-full"
         />
         <p class="error" id="password"></p>
         <input type="submit" class="bg-primary text-white p-2 rounded-3xl" />
       </form>
-      <a href="./signup.html" class="text-primary text-sm text-center p-5 inline-block">Sign Up</a>
+      <a
+        href="https://www.themoviedb.org/signup"
+        class="text-primary text-sm text-center p-5 inline-block"
+        >Sign Up</a
+      >
     </section>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const username = ref('')
+const password = ref('')
+
+function login() {}
+</script>
 
 <style scoped>
 .divider {
