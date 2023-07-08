@@ -7,7 +7,6 @@
       :genre="['action', 'horror']"
       :src="blacklist"
     />
-    <NavLink text="Home" :icon="home" :active-icon="homeActive" active />
     <MovieTrailer title="Outlander" :src="outlander" />
     <WatchMovieCard title="The blade runner" :year="2021" :score="8.3" :src="bladeRunner" />
   </MainLayout>
@@ -18,13 +17,10 @@ import MainPoster from '@/components/MainPoster.vue'
 import amelie from '@/assets/amelie.jpg'
 import outlander from '@/assets/1.jpg'
 import blacklist from '@/assets/blacklist.jpg'
-import home from '@/assets/home.png'
-import homeActive from '@/assets/home-active.png'
 import bladeRunner from '@/assets/blade-runner.jpg'
 import MovieTrailer from '@/components/MovieTrailer.vue'
 import WatchMovieCard from '@/components/WatchMovieCard.vue'
 import SidebarMovieCard from '@/components/SidebarMovieCard.vue'
-import NavLink from '@/components/NavLink.vue'
 import MainLayout from '@/layout/MainLayout.vue'
 </script>
 <style scoped>

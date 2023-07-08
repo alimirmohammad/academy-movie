@@ -12,12 +12,9 @@
       <!-- main links -->
       <section class="text-sm pb-3 pt-3">
         <h2 class="nav-section-header">Personal</h2>
-        <a class="nav-link" href="./home.html">
-          <img src="/images/home.png" alt="home icon" class="w-4 h-4 inline mr-3" />
-          <span>Home</span>
-        </a>
-        <a class="nav-link active" href="#">
-          <img src="/images/compass-active.png" alt="browse icon" class="w-4 h-4 inline mr-3" />
+        <NavLink icon="/images/home.png" active-icon="/images/home-active.png" text="Home" to="/" />
+        <a class="nav-link" href="#">
+          <img src="/images/compass.png" alt="browse icon" class="w-4 h-4 inline mr-3" />
           <span>Browse</span>
         </a>
         <a class="nav-link" href="./watchlist.html">
@@ -27,14 +24,12 @@
       </section>
       <section class="text-sm pb-3 pt-3">
         <h2 class="nav-section-header">Menu</h2>
-        <a class="nav-link" href="./movies.html">
-          <img
-            src="/images/movie.png  "
-            alt="friend icon"
-            class="w-4 h-3 inline mr-[14px] ml-[2px]"
-          />
-          <span>Movies</span>
-        </a>
+        <NavLink
+          icon="/images/movie.png"
+          active-icon="/images/movie-active.png"
+          text="Movies"
+          to="/movies"
+        />
         <a class="nav-link" href="./tv.html">
           <img
             src="/images/TVshow.png  "
@@ -85,6 +80,11 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+import NavLink from './NavLink.vue'
+</script>
+
 <style scoped>
 .logo {
   width: 80px;

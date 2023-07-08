@@ -4,6 +4,7 @@
       <MovieCard
         v-for="movie in movies"
         :key="movie.id"
+        :id="movie.id"
         :src="`${API_IMAGE_BASE_URL}${API_IMAGE_SIZE}${movie.poster_path}`"
         :rating="movie.vote_average"
         :release-date="movie.release_date"

@@ -1,8 +1,8 @@
 <template>
-  <a class="nav-link" :class="{ active }" href="#">
-    <img :src="active ? activeIcon : icon" :alt="text" class="w-4 h-4 inline mr-3" />
+  <RouterLink class="nav-link" active-class="active" :to="to" v-slot="{ isActive }">
+    <img :src="isActive ? activeIcon : icon" :alt="text" class="w-4 h-4 inline mr-3" />
     <span>{{ text }}</span>
-  </a>
+  </RouterLink>
 </template>
 
 <script setup>
@@ -19,9 +19,9 @@ defineProps({
     type: String,
     required: true
   },
-  active: {
-    type: Boolean,
-    default: false
+  to: {
+    type: String,
+    required: true
   }
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div @mouseenter="toggleOverlay" @mouseleave="toggleOverlay" class="overflow-hidden">
-    <a class="thumbnail-image relative">
+    <RouterLink class="thumbnail-image relative" :to="{ name: 'movie-detail', params: { id } }">
       <img :src="src" alt="movie poster" class="movie-poster" />
       <div
         v-if="showOverlay"
@@ -15,7 +15,7 @@
         <!-- <div class="genre">{{ categories }}</div> -->
         <div class="more-infos">{{ year }}</div>
       </div>
-    </a>
+    </RouterLink>
     <h3 class="text-white ml-1 w-full whitespace-break-spaces truncate">{{ title }}</h3>
   </div>
 </template>
@@ -26,7 +26,8 @@ const props = defineProps({
   src: String,
   rating: Number,
   releaseDate: String,
-  title: String
+  title: String,
+  id: String
 })
 const year = computed(() => new Date(props.releaseDate).getFullYear())
 const showOverlay = ref(false)
