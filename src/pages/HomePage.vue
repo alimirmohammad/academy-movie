@@ -1,27 +1,17 @@
 <template>
   <MainLayout>
     <MainPoster title="Asghar" subtitle="naive girl in Paris" :src="amelie" />
-    <SidebarMovieCard
-      title="BlackList"
-      :score="8.3"
-      :genre="['action', 'horror']"
-      :src="blacklist"
-    />
-    <MovieTrailer title="Outlander" :src="outlander" />
-    <WatchMovieCard title="The blade runner" :year="2021" :score="8.3" :src="bladeRunner" />
+    <MovieTrailers />
+    <!-- <MovieTrailer title="Outlander" :src="outlander" />
+    <WatchMovieCard title="The blade runner" :year="2021" :score="8.3" :src="bladeRunner" /> -->
   </MainLayout>
 </template>
 
 <script setup>
 import MainPoster from '@/components/MainPoster.vue'
 import amelie from '@/assets/amelie.jpg'
-import outlander from '@/assets/1.jpg'
-import blacklist from '@/assets/blacklist.jpg'
-import bladeRunner from '@/assets/blade-runner.jpg'
-import MovieTrailer from '@/components/MovieTrailer.vue'
-import WatchMovieCard from '@/components/WatchMovieCard.vue'
-import SidebarMovieCard from '@/components/SidebarMovieCard.vue'
 import MainLayout from '@/layout/MainLayout.vue'
+import MovieTrailers from '../components/MovieTrailers.vue'
 </script>
 <style scoped>
 main {
