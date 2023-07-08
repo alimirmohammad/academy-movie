@@ -9,20 +9,13 @@
 <script setup>
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { client } from '../utils/client'
+import { API_BASE_URL, API_VERSION } from '../constants/api-constants';
+import { MOVIE_DETAILS_URL } from '../constants/endpoints';
 
-function getMovieDetails(movie_id) {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMGQ5MzZhNzQyZTdlYzM4YmEzMTZkMTkxNDcyZDgwOCIsInN1YiI6IjY0OWJlMjhhOTYzODY0MDEwMDQxNDQzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v4e267R8_nYbUNXNgdHx8IfYj2rCSycE633nMMSmBCo'
-    }
-  }
-
-  fetch(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`, options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
+function getMovieDetails(movieId) {
+  client(`${API_BASE_URL}${API_VERSION}${MOVIE_DETAILS_URL(movieId)}?language=en-US`)
+    .then((data) => console.log(data))
     .catch((err) => console.error(err))
 }
 
