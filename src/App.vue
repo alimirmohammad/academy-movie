@@ -1,7 +1,7 @@
 <template>
-  <MoviesPage />
+  <HomePage />
 </template>
 
 <script setup>
-import MoviesPage from './pages/MoviesPage.vue'
+import HomePage from './pages/HomePage.vue'
 </script>

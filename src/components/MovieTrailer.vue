@@ -29,7 +29,7 @@ const props = defineProps({
   }
 })
 
-const background = computed(() => `url(${props.src})`)
+const background = computed(() => `url(https://image.tmdb.org/t/p/original${props.src})`)
 </script>
 
 <style scoped>
