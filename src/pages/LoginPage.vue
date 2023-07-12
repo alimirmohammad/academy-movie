@@ -16,7 +16,7 @@
       </div>
 
       <form
-        @submit.prevent="login"
+        @submit.prevent="signin"
         class="flex flex-col items-center gap-2 justify-center content-center text-secondary w-full"
       >
         <label for="username" class="hidden"></label>
@@ -50,11 +50,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { login } from '../utils/login-utils'
 
 const username = ref('')
 const password = ref('')
 
-function login() {}
+function signin() {
+  login(username.value, password.value)
+}
 </script>
 
 <style scoped>

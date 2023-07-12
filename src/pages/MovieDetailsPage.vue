@@ -9,28 +9,17 @@
 <script setup>
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
-
-function getMovieDetails(movie_id) {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMGQ5MzZhNzQyZTdlYzM4YmEzMTZkMTkxNDcyZDgwOCIsInN1YiI6IjY0OWJlMjhhOTYzODY0MDEwMDQxNDQzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v4e267R8_nYbUNXNgdHx8IfYj2rCSycE633nMMSmBCo'
-    }
-  }
-
-  fetch(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`, options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err))
-}
+import { useFetch } from '../composables/useFetch'
+import { API_BASE_URL, API_VERSION } from '@/constants/api-constants'
+import { MOVIE_DETAILS_URL } from '@/constants/endpoints'
 
 const route = useRoute()
+const { doFetch, data, loading, error } = useFetch()
+
 watch(
   () => route.params.id,
   (newId) => {
-    getMovieDetails(newId)
+    doFetch(`${API_BASE_URL}${API_VERSION}${MOVIE_DETAILS_URL(newId)}?language=en-US`)
   },
   { immediate: true }
 )
