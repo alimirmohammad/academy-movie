@@ -45,10 +45,7 @@
       </section>
       <section class="text-sm pb-3 pt-3">
         <h2 class="nav-section-header">general</h2>
-        <a class="nav-link" href="./setting.html">
-          <img src="/images/setting.png" alt="setting icon" class="w-4 h-4 inline mr-3" />
-          <span>Setting</span>
-        </a>
+        <NavLink icon="/images/setting.png" active-icon="/images/setting-active.png" text="setting" to="/settings" />
         <a class="nav-link" href="./logout.html">
           <img src="/images/logout.png" alt="logout icon" class="w-4 h-4 inline mr-3" />
           <span>Log out</span>

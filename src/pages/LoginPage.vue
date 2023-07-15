@@ -49,9 +49,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { login } from '../utils/login-utils'
-
+import { inject, ref } from 'vue'
+import { LOGIN } from '../utils/keys';
+const login = inject(LOGIN)
 const username = ref('')
 const password = ref('')
 

@@ -2,7 +2,7 @@
   <div :class="classess">
     <label :for="name" class="hidden">{{ label }}</label>
     <input
-      :value="modelValue"
+      v-model="model"
       :type="inputType"
       :name="name"
       :placeholder="placeholder"
@@ -20,6 +20,9 @@
 import { computed, reactive, ref } from 'vue'
 import { inputTypes } from '@/utils/variables'
 const emits = defineEmits(['update:modelValue', 'focus', 'blur'])
+defineOptions({
+  inheritAttrs: false
+})
 const props = defineProps({
   modelValue: [String, Number],
   name: String,
@@ -29,6 +32,10 @@ const props = defineProps({
   hint: String,
   placeholder: String,
   disabled: Boolean
+})
+const model = computed({
+  get:() => props.modelValue,
+  set: (value) => emits('update:modelValue', value) 
 })
 const isFocused = ref(false)
 const isActive = computed(() => props.modelValue || isFocused.value)
@@ -57,9 +64,13 @@ function onBlur(e) {
 
 }
 const onEvents = reactive({
-  input: onInput,
+  // input: onInput,
   focus: onFocus,
   blur: onBlur
+})
+defineExpose({
+  isFocused,
+  ...onEvents
 })
 </script>
 <style scoped>
